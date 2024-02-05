@@ -246,7 +246,7 @@ if not st.session_state.start_chat:
         """
         <h2 style='text-align: center;'>
             🚀 Ready to enhance your LinkedIn profile? <br>
-            🔑 Drop your <img src='https://upcdn.io/FW25bBB/image/content/app_logos/485244ee-9158-4685-8f1e-d349e97b35e1.png?f=webp&w=1920&q=85&fit=shrink-cover' alt='LinkedIn Logo' width='45' height='45' style='border-radius: 15%'> API key and <img src='https://www.pagetraffic.com/blog/wp-content/uploads/2022/09/linkedin-blue-logo-icon.png' alt='LinkedIn Logo' width='40' height='40'> profile URL in the sidebar and let's dive in! 💼
+            Drop your <img src='https://upcdn.io/FW25bBB/image/content/app_logos/485244ee-9158-4685-8f1e-d349e97b35e1.png?f=webp&w=1920&q=85&fit=shrink-cover' alt='LinkedIn Logo' width='45' height='45' style='border-radius: 15%'> API key and <img src='https://www.pagetraffic.com/blog/wp-content/uploads/2022/09/linkedin-blue-logo-icon.png' alt='LinkedIn Logo' width='40' height='40'> profile URL in the sidebar and let's dive in!
         </h2>
         """,
         unsafe_allow_html=True
