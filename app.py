@@ -25,14 +25,14 @@ if "analysis_completed" not in st.session_state:
     st.session_state.analysis_completed = False
 
 # Configure the Streamlit page
-st.set_page_config(page_title="RateIn", page_icon=":computer:")
+st.set_page_config(page_title="ReviewIn", page_icon=":computer:")
 
 with st.sidebar:
-    st.markdown("<h1 style='display: flex; align-items: center;'>RateIn <img src='https://www.pagetraffic.com/blog/wp-content/uploads/2022/09/linkedin-blue-logo-icon.png' alt='LinkedIn Logo' width='40' height='40'></h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='display: flex; align-items: center;'>ReviewIn <img src='https://www.pagetraffic.com/blog/wp-content/uploads/2022/09/linkedin-blue-logo-icon.png' alt='LinkedIn Logo' width='40' height='40'></h1>", unsafe_allow_html=True)
     #bullet points
-    with st.expander("🚀 What does RateIn do?"):
+    with st.expander("🚀 What does ReviewIn do?"):
         st.markdown("""
-            - 🧐 **LinkedIn Profile Optimization:** Personalized, actionable advice for enhancing your profile.
+            - 🧐 **LinkedIn Profile Review:** Personalized, actionable advice for enhancing your profile.
             - 📚 **Specialized Knowledge:** Draws on a custom knowledge base tailored for LinkedIn profile improvements.
             - 💡 **Powered by OpenAI:** Leverages the Assistant's API with GPT-4 Turbo for analysis and conversation.
             - 🖼 **Vision Insights:** GPT-4 Vision for detailed feedback on profile pictures.
