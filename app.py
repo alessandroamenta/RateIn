@@ -36,6 +36,7 @@ with st.sidebar:
             - 📚 **Specialized Knowledge:** Draws on a custom knowledge base tailored for LinkedIn profile improvements.
             - 💡 **Powered by OpenAI:** Leverages the Assistant's API with GPT-4 Turbo for analysis and conversation.
             - 🖼 **Vision Insights:** GPT-4 Vision for detailed feedback on profile pictures.
+            - ⚠️ **Note:** Assistants API is in beta and doesn't support streaming. The full response is generated before being sent. Your patience is appreciated! 🙂
         """, unsafe_allow_html=True)
 
 
