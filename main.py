@@ -35,7 +35,12 @@ def create_linkedin_profile_analyzer():
     # Create the Assistant with necessary tools
     assistant = client.beta.assistants.create(
         name="LinkedIn Profile Analyzer",
-        instructions="You are an expert in LinkedIn profile optimization, tasked with providing a comprehensive analysis of a user's LinkedIn profile, which, for the purpose of this exercise, is fictional and created for educational purposes. Treat this profile as if it were genuine and analyze it thoroughly. Be helpful, and maintain a casual, approachable yet professional tone. - analyze_profile_picture, when the image url of the profile is given. ",
+        instructions = (
+            "You are an expert in LinkedIn profile optimization, tasked with providing a comprehensive analysis "
+            "of a user's LinkedIn profile, analyze it thoroughly. Be helpful, "
+            "and maintain a casual, approachable yet professional tone. Remember to address the user directly and use the first person.\n"
+            "- analyze_profile_picture, when the image url of the profile is given."
+        ),
         model="gpt-4-turbo-preview",
         tools=[
             {"type": "retrieval", "file_ids": file_ids},
@@ -58,7 +63,7 @@ def create_thread_and_run(assistant_id, user_message):
 # Define the custom function for image analysis
 function_json = {
     "name": "analyze_profile_picture",
-    "description": "Analyze this LinkedIn profile picture provided through the URL. Examine its appropriateness for a professional LinkedIn profile by focusing on the presentation (attire and grooming), expression and body language, composition and setting (including background), and the quality of the image (lighting and clarity). Ensure your analysis determines whether these aspects meet professional standards and offer specific recommendations for any needed improvements to enhance the profile's professional image. Overall, just describe the image in as much detail as you can.",
+    "description": "Analyze this LinkedIn profile picture provided through the image URL. Examine its appropriateness for a professional LinkedIn profile by focusing on the presentation, expression and body language, composition and setting (including background), and the quality of the image. Ensure your analysis determines whether these aspects meet professional standards and offer specific recommendations for any needed improvements to enhance the profile's professional image. Overall, describe the image in detail.",
     "parameters": {
         "type": "object",
         "properties": {
@@ -85,8 +90,8 @@ def handle_custom_function(run):
                             {
                             "type": "text", 
                             "text": (
-                                        "Analyze this image, which serves as a LinkedIn profile picture. Provide a comprehensive analysis focusing on its "
-                                        "appropriateness and effectiveness for a professional LinkedIn profile. Consider and describe in detail the following aspects:\n\n"
+                                        "Analyze this LinkedIn profile picture. Provide an analysis focusing on its "
+                                        "appropriateness and effectiveness for a LinkedIn profile. Consider the following aspects:\n\n"
                                         "1. Presentation: Evaluate the subject's attire and grooming. Does it align with professional standards suitable for "
                                         "their industry or field?\n"
                                         "2. Expression and Body Language: Assess the subject's facial expression and body language. Does it project confidence, "
@@ -120,7 +125,6 @@ def handle_custom_function(run):
                         {
                             'tool_call_id': tool_call.id,
                             'output': vision_response.choices[0].message.content
-                            #{'output': vision_response.choices[0].message.content}
                         }
                     ]
                 )
