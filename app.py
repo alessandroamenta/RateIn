@@ -30,12 +30,13 @@ st.set_page_config(page_title="ReviewIn", page_icon=":computer:")
 with st.sidebar:
     st.markdown("<h1 style='display: flex; align-items: center;'>ReviewIn <img src='https://www.pagetraffic.com/blog/wp-content/uploads/2022/09/linkedin-blue-logo-icon.png' alt='LinkedIn Logo' width='40' height='40'></h1>", unsafe_allow_html=True)
     #bullet points
-    with st.expander("🚀 What does ReviewIn do?"):
+    with st.expander("🚀 Features and Tips"):
         st.markdown("""
             - 🧐 **LinkedIn Profile Review:** Personalized, actionable advice for enhancing your profile.
             - 📚 **Specialized Knowledge:** Draws on a custom knowledge base tailored for LinkedIn profile improvements.
             - 💡 **Powered by OpenAI:** Leverages the Assistant's API with GPT-4 Turbo for analysis and conversation.
             - 🖼 **Vision Insights:** GPT-4 Vision for detailed feedback on profile pictures.
+            - 🔥 **Tip:** For better analysis, set your profile to public. The more complete and public your profile, the better our insights.
             - ⚠️ **Note:** Assistants API is in beta and doesn't yet support streaming - full response is generated before being sent. Your patience is appreciated! 🙂
         """, unsafe_allow_html=True)
 
@@ -141,7 +142,7 @@ if st.session_state.start_chat:
             # Process the LinkedIn profile URL
             formatted_text, image_url = scrape_linkedin_profile(profile_url)
             time.sleep(3)
-            if formatted_text and image_url:
+            if formatted_text:
                 # Instructions for analysis
                 instructions = """
                                 Provide an analysis/report of my LinkedIn profile below. Approach this task with professionalism and friendliness, ensure your recommendations is are both helpful and actionable. Provide detailed feedback for improvement. You can follow this structure:
@@ -155,9 +156,11 @@ if st.session_state.start_chat:
 
                                 Remember, your analysis should be comprehensive and nuanced, leveraging your expertise and any relevant external information from the files, where relevant. Address me directly and use the first person for a personal touch Let's evaluate this LinkedIn profile:
                             """
-                # Concatenate instructions with the profile text and image URL for analysis
-                analysis_request = f"{instructions}\n\n**HERE IS THE CONTENT FOR ANALYSIS**:\n- **Profile Text**: {formatted_text}\n- **Profile Image URL**: {image_url}"
-                
+                # Prepare the analysis request content
+                analysis_request = f"{instructions}\n\n**HERE IS THE CONTENT FOR ANALYSIS**:\n- **Profile Text**: {formatted_text}\n"
+                if image_url:  # Conditionally include image URL if available
+                    analysis_request += f"- **Profile Image URL**: {image_url}"
+
                 # Add job preferences to the analysis request if any
                 if job_preferences:
                     analysis_request += f"\n\n**ADDITIONAL** - If relevant, please incorporate the following context about the job preferences of the user to tailor the recommendations: {job_preferences}"
