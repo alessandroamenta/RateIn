@@ -255,3 +255,4 @@ if not st.session_state.start_chat:
         """,
         unsafe_allow_html=True
     )
+    st.image("dalle.png", use_column_width=True)
