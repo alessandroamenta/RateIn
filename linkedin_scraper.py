@@ -28,7 +28,7 @@ def scrape_linkedin_profile(profile_url):
         logging.error("RapidAPI key not found. Please set the RAPIDAPI_KEY environment variable.")
         return None, None
 
-    url = "https://linkedin-data-api.p.rapidapi.com/"
+    url = "https://linkedin-api8.p.rapidapi.com/"
     querystring = {"username": username}
 
     headers = {
