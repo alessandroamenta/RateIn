@@ -33,7 +33,7 @@ def scrape_linkedin_profile(profile_url):
 
     headers = {
         "X-RapidAPI-Key": rapidapi_key,
-        "X-RapidAPI-Host": "linkedin-data-api.p.rapidapi.com"
+        "X-RapidAPI-Host": "linkedin-api8.p.rapidapi.com"
     }
 
     try:
